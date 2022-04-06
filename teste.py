@@ -14,6 +14,7 @@ chute_teste = "iieiii"
 gabarito_teste = "eiooei"
 
 x = letras_certas(chute_teste, gabarito_teste)
+
 assert x == "_Ie__I"
 
 # ----------------------------------------------------------
@@ -29,4 +30,8 @@ chute_teste = "qqeiei"
 gabarito_teste = "eíntei"
 
 x = letras_certas(chute_teste, gabarito_teste)
-# assert x == "__eiEI"
+assert x == "__eiEI"
+
+# ----------------------------------------------------------
+x = letras_certas("eeieii", "iiieee")
+assert x == "eeIEii"

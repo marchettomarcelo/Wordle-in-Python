@@ -51,9 +51,10 @@ def letras_certas(chute, gabarito):
 
     for indice, letra in enumerate(chute):
 
-        if letra in gabarito_limpo and frequencia_letras_do_gabarito[letra] > 0:
-            nova_palavra[indice] = chute_teste[indice]
+        if letra in gabarito_limpo and frequencia_letras_do_gabarito[letra] > 0 and nova_palavra[indice] == " " :
+            nova_palavra[indice] = chute[indice]
             frequencia_letras_do_gabarito[letra] -= 1
 
     
     return "".join(nova_palavra).replace(" ", "_")
+
