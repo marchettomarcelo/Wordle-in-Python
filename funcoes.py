@@ -46,7 +46,7 @@ def letras_certas(chute, gabarito, status_das_letras):
                 status_das_letras["lugar_errado"].remove(letra)
                 status_das_letras["certa"].append(letra)
 
-
+    # Letras certas, nos lugares certo E letras inexistentes na palavra
     for indice, letra in enumerate(chute):
 
         if letra in gabarito_limpo and frequencia_letras_do_gabarito[letra] > 0 and placar_da_rodada[indice] == " " :
