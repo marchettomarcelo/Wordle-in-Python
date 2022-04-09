@@ -1,4 +1,5 @@
 from funcoes import *
+from validacao import *
 from palavra_secreta import gerar_palavra_secreta
 
 tentativas =  {
@@ -12,10 +13,17 @@ tentativas =  {
     "Não acertou":  0
 }
 
+status_das_letras = {
+    "n_usadas" : ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+    "lugar_errado" : [],
+    "certa": [],
+    "inexistente" : []
+}
+
 while True:
 
     # palavra_secreta = gerar_palavra_secreta()
-    palavra_secreta = "artur"
+    palavra_secreta = "falaf"
     print(palavra_secreta)
     
     for rodada in range(1,7):
@@ -25,8 +33,9 @@ while True:
         # palavra em lowrcase, sem acentos e no tamanho correto
         chute_do_usuario = recebe_input_usuario()
 
-        placar_da_rodada, acertos = letras_certas(chute_do_usuario, palavra_secreta)
+        placar_da_rodada, acertos, status_das_letras  = letras_certas(chute_do_usuario, palavra_secreta, status_das_letras)
 
+        # print(status_das_letras)
         print(placar_da_rodada)
 
         if acertos == 5:
