@@ -1,6 +1,6 @@
 from funcoes import letras_certas
 
-# ----------------------------------------------------------
+# -------------------------------------------------------
 
 chute_teste = "iooooo"
 gabarito_teste = "ínsper"
