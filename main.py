@@ -1,56 +1,58 @@
-from funcoes import remove_acentos
+from funcoes import *
 from palavra_secreta import gerar_palavra_secreta
 
-from funcoes import letras_certas
-
-def valida_chute(palavra):
-
-    if len(palavra) > 6:
-        return False, "Palavra tem mais de 6 caracteres!"
-    
-    if len(palavra) < 6:
-        return False, "Palavra tem menos de 6 caracteres!"
-
-    if palavra != remove_acentos(palavra):
-        return False, "Insira uma palavra sem acentos"
-    
-    for num in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ]:
-        if num in palavra:
-            return False, "Insira uma palavra sem números! "
-
-    return True, "OK"
-
-
-
+tentativas =  {
+    "n_tentativas": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 0,
+    "5": 0,
+    "6": 0,
+    "Não acertou":  0
+}
 
 while True:
 
-    palavra_secreta = gerar_palavra_secreta()
-    palavra_secreta = 'ÉTICOS'
+    # palavra_secreta = gerar_palavra_secreta()
+    palavra_secreta = "artur"
     print(palavra_secreta)
     
-
     for rodada in range(1,7):
 
-
         print(f"Você está na rodada {rodada}!")
-
-        while True:
-            chute_do_usuario = input("Insira uma palavra: ").strip()
-
-            foi_sucesso, status = valida_chute(chute_do_usuario)
-
-            if foi_sucesso:
-                break
-            
-            else:
-                print(status)
         
-        placar_da_rodada = letras_certas(chute_do_usuario, palavra_secreta)
+        # palavra em lowrcase, sem acentos e no tamanho correto
+        chute_do_usuario = recebe_input_usuario()
+
+        placar_da_rodada, acertos = letras_certas(chute_do_usuario, palavra_secreta)
+
         print(placar_da_rodada)
-        if placar_da_rodada == palavra_secreta:
-            print("voce ganhou")
+
+        if acertos == 5:
+            print(f"Você ganhou em {rodada} tentativas!")
+            
+            tentativas[str(rodada)] += 1
+            tentativas["n_tentativas"] +=1
+
+            resumo_das_rodadas = resumo_de_rodadas(tentativas)
+            print(resumo_das_rodadas)
+
             break
         
+        if rodada == 6:
+
+            tentativas["Não acertou"] += 1
+            tentativas["n_tentativas"] +=1
+            print("voce perdeu")
+
+            resumo_das_rodadas = resumo_de_rodadas(tentativas)
+            print(resumo_das_rodadas)
+
+
+    jogar_novamente = valida_input_usuario("Deseja jogar novamente? Digite sim(s) ou não(n): ", "s", "n")
+    if jogar_novamente == "n":
+        break
+
         
 

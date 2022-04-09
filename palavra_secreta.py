@@ -21,6 +21,6 @@ def gerar_palavra_secreta():
     'afinco', 'açoite', 'vítima', 'tarefa', 'máxima', 'primar', 'labuta', 'míngua', 'cartel', 'contar', 'porção', 'língua', 'lotado', 'romper', 'poupar', 'amante', 'antigo', 'imundo', 'balela', 'imoral', 'fulcro', 'afetar', 'agente', 'áspero', 'matriz', 'caução', 
     'sofrer', 'dentre', 'venham', 'ditoso', 'fausto', 'sustar', 'causar', 'munido', 'módulo', 'ciscar', 'larica', 'pseudo', 'zombar', 'ansiar', 'vários', 'começo', 'modelo', 'imenso', 'fálico', 'afoito', 'autuar', 'depois', 'trevas', 'efeito', 'melhor'  ]
     indice_aleatorio = random.randint(0, len(palavras) -1 )
+    
     return palavras[indice_aleatorio]
-
 
