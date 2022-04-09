@@ -1,7 +1,7 @@
 from funcoes import remove_acentos
 from palavra_secreta import gerar_palavra_secreta
 
-
+from funcoes import letras_certas
 
 def valida_chute(palavra):
 
@@ -26,6 +26,8 @@ def valida_chute(palavra):
 while True:
 
     palavra_secreta = gerar_palavra_secreta()
+    palavra_secreta = 'ÉTICOS'
+    print(palavra_secreta)
     
 
     for rodada in range(1,7):
@@ -39,9 +41,16 @@ while True:
             foi_sucesso, status = valida_chute(chute_do_usuario)
 
             if foi_sucesso:
-                
                 break
+            
             else:
                 print(status)
+        
+        placar_da_rodada = letras_certas(chute_do_usuario, palavra_secreta)
+        print(placar_da_rodada)
+        if placar_da_rodada == palavra_secreta:
+            print("voce ganhou")
+            break
+        
         
 

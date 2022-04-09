@@ -31,7 +31,7 @@ def letras_certas(chute, gabarito):
     frequencia_letras_do_gabarito = frequencia_letras(gabarito_limpo)
     
 
-    nova_palavra = [" ", " "," "," "," "," "]
+    nova_palavra = [" ", " ", " ", " ", " ", " "]
     
     # Letras certas, nos lugares certo
     for indice, letra in enumerate(chute):
@@ -57,4 +57,3 @@ def letras_certas(chute, gabarito):
 
     
     return "".join(nova_palavra).replace(" ", "_")
-
