@@ -14,6 +14,10 @@ def frequencia_letras(palavra):
 
 def letras_certas(chute, gabarito, status_das_letras):
 
+    reset = "\u001b[0m"
+    verde = "\u001b[32m"
+    amarelo = "\u001b[33m"
+
     acertos = 0
     
     # Dict para keep track da quantidade de letras utilizadas
@@ -40,11 +44,11 @@ def letras_certas(chute, gabarito, status_das_letras):
              # atualizar dict de lógica do feedback do teclado
             if letra in status_das_letras["n_usadas"]:
                 status_das_letras["n_usadas"].remove(letra)
-                status_das_letras["certa"].append(letra)
+                status_das_letras["correto"].append(letra)
             
-            elif letra in status_das_letras["lugar_errado"]:
-                status_das_letras["lugar_errado"].remove(letra)
-                status_das_letras["certa"].append(letra)
+            elif letra in status_das_letras["presente"]:
+                status_das_letras["presente"].remove(letra)
+                status_das_letras["correto"].append(letra)
 
     # Letras certas, nos lugares certo E letras inexistentes na palavra
     for indice, letra in enumerate(chute):
@@ -54,7 +58,7 @@ def letras_certas(chute, gabarito, status_das_letras):
             # atualizar dict de lógica do feedback do teclado
             if letra in status_das_letras["n_usadas"]:
                 status_das_letras["n_usadas"].remove(letra)
-                status_das_letras["lugar_errado"].append(letra)
+                status_das_letras["presente"].append(letra)
                   
             placar_da_rodada[indice] = amarelo + chute[indice] + reset
             frequencia_letras_do_gabarito[letra] -= 1
@@ -65,13 +69,10 @@ def letras_certas(chute, gabarito, status_das_letras):
             # atualizar dict de lógica do feedback do teclado
             if letra in status_das_letras["n_usadas"]:
                 status_das_letras["n_usadas"].remove(letra)
-                status_das_letras["inexistente"].append(letra)
+                status_das_letras["ausente"].append(letra)
 
 
     return "".join(placar_da_rodada).replace(" ", "_"), acertos, status_das_letras
-
-
-
 
 
 def recebe_input_usuario():
@@ -100,8 +101,3 @@ def resumo_de_rodadas(dict_tentativas):
             Tentativas 6: {dict_tentativas["6"] /dict_tentativas["n_tentativas"]*100:.2f}%
             Não acertou:  {dict_tentativas["Não acertou"] /dict_tentativas["n_tentativas"]*100:.2f}%
         '''
-
-
-reset = "\u001b[0m"
-verde = "\u001b[32m"
-amarelo = "\u001b[33m"

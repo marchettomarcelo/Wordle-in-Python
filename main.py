@@ -1,29 +1,15 @@
 from funcoes import *
 from validacao import *
 from palavra_secreta import gerar_palavra_secreta
+from iniciar_jogo import *
+from resultados_parciais import *
 
-tentativas =  {
-    "n_tentativas": 0,
-    "1": 0,
-    "2": 0,
-    "3": 0,
-    "4": 0,
-    "5": 0,
-    "6": 0,
-    "Não acertou":  0
-}
-
-status_das_letras = {
-    "n_usadas" : ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-    "lugar_errado" : [],
-    "certa": [],
-    "inexistente" : []
-}
+tentativas, status_das_letras, historico_de_placares = iniciar()
 
 while True:
 
     # palavra_secreta = gerar_palavra_secreta()
-    palavra_secreta = "falaf"
+    palavra_secreta = "marco"
     print(palavra_secreta)
     
     for rodada in range(1,7):
@@ -35,8 +21,17 @@ while True:
 
         placar_da_rodada, acertos, status_das_letras  = letras_certas(chute_do_usuario, palavra_secreta, status_das_letras)
 
-        # print(status_das_letras)
-        print(placar_da_rodada)
+        # Atualizar e imprimir os palacares
+        print("")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        historico_de_placares.append(placar_da_rodada)
+        for placar in historico_de_placares:
+            print(placar)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("")
+
+        # Imprime a parcial das letras
+        parcial_das_letras_utilizadas(status_das_letras)
 
         if acertos == 5:
             print(f"Você ganhou em {rodada} tentativas!")
@@ -62,6 +57,10 @@ while True:
     jogar_novamente = valida_input_usuario("Deseja jogar novamente? Digite sim(s) ou não(n): ", "s", "n")
     if jogar_novamente == "n":
         break
+    elif jogar_novamente == "s":
+        status_das_letras, historico_de_placares = iniciar( renovar_tentativas = False)
+
+        
 
         
 
