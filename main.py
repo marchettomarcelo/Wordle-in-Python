@@ -8,9 +8,8 @@ tentativas, status_das_letras, historico_de_placares = iniciar()
 
 while True:
 
-    # palavra_secreta = gerar_palavra_secreta()
-    palavra_secreta = "marco"
-    print(palavra_secreta)
+    palavra_secreta = gerar_palavra_secreta()
+    # print(palavra_secreta)
     
     for rodada in range(1,7):
 
@@ -48,6 +47,16 @@ while True:
 
             tentativas["Não acertou"] += 1
             tentativas["n_tentativas"] +=1
+
+            print("")            
+            print("!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!")
+            print("")            
+            print("A palavra secreta é: ")
+            print(palavra_secreta)
+            print("")            
+            print("!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!¡!")
+            print("")            
+
             print("voce perdeu")
 
             resumo_das_rodadas = resumo_de_rodadas(tentativas)
