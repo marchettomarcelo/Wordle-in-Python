@@ -19,8 +19,6 @@ while True:
         
         # palavra existente, capitalizada, com acentos e no tamanho correto ex: fOgãO -> fogão  
         chute_do_usuario = recebe_input_usuario(lista_de_palavras)
-        print(chute_do_usuario)
-
 
         # Verifica acertos e erros do usuario
         placar_da_rodada, acertos, status_das_letras  = letras_certas(chute_do_usuario, palavra_secreta, status_das_letras)
@@ -38,9 +36,7 @@ while True:
             tentativas[str(rodada)] += 1
             tentativas["n_tentativas"] +=1
 
-            resumo_das_rodadas = resumo_de_rodadas(tentativas)
-            print(resumo_das_rodadas)
-
+            resumo_de_rodadas(tentativas)
             break
         
         if rodada == 6:
@@ -50,11 +46,10 @@ while True:
 
             printar_finalizacao(palavra_secreta)
 
-            resumo_das_rodadas = resumo_de_rodadas(tentativas)
-            print(resumo_das_rodadas)
-
+            resumo_de_rodadas(tentativas)
 
     jogar_novamente = valida_input_usuario("Deseja jogar novamente? Digite sim(s) ou não(n): ", "s", "n")
+    
     if jogar_novamente == "n":
         break
     elif jogar_novamente == "s":
