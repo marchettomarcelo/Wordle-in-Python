@@ -25,7 +25,3 @@ def iniciar(renovar_tentativas = True):
         return tentativas, status_das_letras, historico_de_placares
     else:
         return status_das_letras, historico_de_placares
-
-
-# c = "#############################################"
-# print(c.replace("#", "~"))

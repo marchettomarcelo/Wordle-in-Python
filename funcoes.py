@@ -80,32 +80,7 @@ def letras_certas(chute, gabarito, status_das_letras):
 
 
 # _------------------------------------------------------------------------------------------------
-def recebe_input_usuario(lista_de_palavras):
-
-    while True:
-        
-        chute_do_usuario = input("Insira uma palavra: ").strip()
-        foi_sucesso, status = valida_chute(chute_do_usuario)
-     
-        if foi_sucesso:
-            if chute_do_usuario.capitalize() in lista_de_palavras:
-                return chute_do_usuario
-            else:
-                print("Palávra inválida! ")
-        else:
-            print(status)
 
 
 
 
-def resumo_de_rodadas(dict_tentativas):
-    print(f''' parcial:
-            Tentativas 1: {dict_tentativas["1"] /dict_tentativas["n_tentativas"]*100:.2f}%
-            Tentativas 2: {dict_tentativas["2"] /dict_tentativas["n_tentativas"]*100:.2f}%
-            Tentativas 3: {dict_tentativas["3"] /dict_tentativas["n_tentativas"]*100:.2f}%
-            Tentativas 4: {dict_tentativas["4"] /dict_tentativas["n_tentativas"]*100:.2f}%
-            Tentativas 5: {dict_tentativas["5"] /dict_tentativas["n_tentativas"]*100:.2f}%
-            Tentativas 6: {dict_tentativas["6"] /dict_tentativas["n_tentativas"]*100:.2f}%
-            Não acertou:  {dict_tentativas["Não acertou"] /dict_tentativas["n_tentativas"]*100:.2f}%
-        ''')
-    return

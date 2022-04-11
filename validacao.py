@@ -31,3 +31,18 @@ def valida_input_usuario(pergunta, respota1, respota2):
             return input_do_usuario
         else:
             input_do_usuario =  input(f"Escolha uma dessas duas respostas: {respota1} ou {respota2}!")
+
+def recebe_input_usuario(lista_de_palavras):
+
+    while True:
+        
+        chute_do_usuario = input("Insira uma palavra: ").strip()
+        foi_sucesso, status = valida_chute(chute_do_usuario)
+     
+        if foi_sucesso:
+            if chute_do_usuario.capitalize() in lista_de_palavras:
+                return chute_do_usuario
+            else:
+                print("Palávra inválida! ")
+        else:
+            print(status)
