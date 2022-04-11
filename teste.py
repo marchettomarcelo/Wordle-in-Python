@@ -1,29 +1,13 @@
-# from validacao import *
-# from funcoes import *
 
-# def criar_lista_de_palavras():
-#     with open("palavras.txt") as file:
-#         lista_de_palavras = [line.rstrip().capitalize() for line in file]
-#     return lista_de_palavras
+# from funcoes import letras_certas
 
-# def recebe_input_usuario(lista_de_palavras):
-
-#     while True:
-        
-#         chute_do_usuario = input("Insira uma palavra: ").strip().capitalize()
-#         foi_sucesso, status = valida_chute(chute_do_usuario)
+# status_das_letras = {
+#         "n_usadas" : ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+#         "presente" : [],
+#         "correto": [],
+#         "ausente" : []
      
-#         if foi_sucesso:
-#             if chute_do_usuario in lista_de_palavras:
-#                 return valida_palavra(chute_do_usuario)
-#             else:
-#                 print("Palávra inválida! ")
-#         else:
-#             print(status)
+# }
 
-
-# l = criar_lista_de_palavras()
-# print(l)
-
-# x = recebe_input_usuario(l)
-# print(x)
+# placar_da_rodada, acertos, status_das_letras = letras_certas("fogao", "falar", status_das_letras)
+# print(placar_da_rodada)

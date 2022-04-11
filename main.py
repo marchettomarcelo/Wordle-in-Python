@@ -17,9 +17,11 @@ while True:
 
         print(f"Você está na rodada {rodada}!")
         
-        # palavra em lowrcase, sem acentos e no tamanho correto
+        # palavra existente, capitalizada, com acentos e no tamanho correto ex: fOgãO -> fogão  
         chute_do_usuario = recebe_input_usuario(lista_de_palavras)
-        
+        print(chute_do_usuario)
+
+
         # Verifica acertos e erros do usuario
         placar_da_rodada, acertos, status_das_letras  = letras_certas(chute_do_usuario, palavra_secreta, status_das_letras)
         historico_de_placares.append(placar_da_rodada)
