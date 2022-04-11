@@ -1,19 +1,29 @@
-import requests
+# from validacao import *
+# from funcoes import *
 
-# url = "https://www.ime.usp.br/~pf/dicios/br-utf8.txt"
+# def criar_lista_de_palavras():
+#     with open("palavras.txt") as file:
+#         lista_de_palavras = [line.rstrip().capitalize() for line in file]
+#     return lista_de_palavras
 
-# page = requests.get(url)
+# def recebe_input_usuario(lista_de_palavras):
 
-# cinco_letras = []
-# palavras = page.text.split()
+#     while True:
+        
+#         chute_do_usuario = input("Insira uma palavra: ").strip().capitalize()
+#         foi_sucesso, status = valida_chute(chute_do_usuario)
+     
+#         if foi_sucesso:
+#             if chute_do_usuario in lista_de_palavras:
+#                 return valida_palavra(chute_do_usuario)
+#             else:
+#                 print("Palávra inválida! ")
+#         else:
+#             print(status)
 
-# for palavra in palavras:
-#     if len(palavra) == 5:
-#         cinco_letras.append(palavra)
 
-# with open("palavras.txt", "w") as f:
-#     for palavra in cinco_letras:
-#         f.write(palavra)
-#         f.write('\n')
-    
+# l = criar_lista_de_palavras()
+# print(l)
 
+# x = recebe_input_usuario(l)
+# print(x)

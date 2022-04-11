@@ -75,19 +75,22 @@ def letras_certas(chute, gabarito, status_das_letras):
     return "".join(placar_da_rodada).replace(" ", "_"), acertos, status_das_letras
 
 
-def recebe_input_usuario():
+
+def recebe_input_usuario(lista_de_palavras):
 
     while True:
-        chute_do_usuario = input("Insira uma palavra: ").strip()
-
-        chute_do_usuario_validado = valida_palavra(chute_do_usuario)
-
-        foi_sucesso, status = valida_chute(chute_do_usuario_validado)
-
+        
+        chute_do_usuario = input("Insira uma palavra: ").strip().capitalize()
+        foi_sucesso, status = valida_chute(chute_do_usuario)
+     
         if foi_sucesso:
-            return chute_do_usuario_validado
+            if chute_do_usuario in lista_de_palavras:
+                return valida_palavra(chute_do_usuario)
+            else:
+                print("Palávra inválida! ")
         else:
             print(status)
+
 
 
 
