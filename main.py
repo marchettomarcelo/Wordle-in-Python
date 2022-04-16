@@ -12,6 +12,8 @@ while True:
 
     palavra_secreta = gerar_palavra_secreta(lista_de_palavras)
     print("Palavra secreta: ", palavra_secreta)
+
+    bibliotecario()
     
     for rodada in range(1,7):
 
@@ -31,16 +33,20 @@ while True:
         parcial_das_letras_utilizadas(status_das_letras)
 
         if acertos == 5:
-            print(f"Você ganhou em {rodada} tentativas!")
+            
+            ganhou()
             
             tentativas[str(rodada)] += 1
             tentativas["n_tentativas"] +=1
 
+            printar_finalizacao(palavra_secreta)
             resumo_de_rodadas(tentativas)
             break
         
         if rodada == 6:
 
+            perdeu()
+            
             tentativas["Não acertou"] += 1
             tentativas["n_tentativas"] +=1
 

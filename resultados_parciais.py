@@ -8,7 +8,7 @@ def parcial_das_letras_utilizadas(status_das_letras):
     amarelo = "\u001b[33m"
 
     print("")
-    print("#############################################")
+    print("########## Feedback do teclado ##############")
     print("")
 
     for status, lista in status_das_letras.items():
@@ -27,4 +27,5 @@ def parcial_das_letras_utilizadas(status_das_letras):
     
     print("")
     print("#############################################")
+
     print("")
